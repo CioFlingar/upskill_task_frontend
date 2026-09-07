@@ -11,6 +11,10 @@ A lightweight React frontend for displaying expense data from a local API. The a
 - Uses Tailwind CSS and daisyUI for the interface
 - Provides a fast Vite development workflow
 
+## Example
+
+![Expense Dashboard example](./public/expense-dashboard-example.png)
+
 ## Tech stack
 
 - [React](https://react.dev/) 19
