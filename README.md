@@ -5,6 +5,8 @@ A lightweight React frontend for displaying expense data from a local API. The a
 ## Features
 
 - Fetches expenses from the backend when the app loads
+- Adds new expenses from the dashboard
+- Updates existing expenses from the dashboard
 - Displays each expense title and amount in a simple dashboard card
 - Uses Tailwind CSS and daisyUI for the interface
 - Provides a fast Vite development workflow
@@ -63,7 +65,13 @@ A lightweight React frontend for displaying expense data from a local API. The a
 
 ## API response
 
-The frontend expects `GET /expenses/` to return a JSON array. Each item should include an `id`, `title`, and `amount`:
+The frontend uses the following REST endpoints:
+
+- `GET /expenses/` - return all expenses as a JSON array
+- `POST /expenses/` - create an expense
+- `PUT /expenses/{id}/` - replace an existing expense
+
+Each expense should include an `id`, `title`, and `amount`. Create and update requests send `title` and numeric `amount` as JSON:
 
 ```json
 [
