@@ -1,16 +1,116 @@
-# React + Vite
+# Expense Dashboard Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight React frontend for displaying expense data from a local API. The app is built with Vite, styled with Tailwind CSS and daisyUI, and is intended to run alongside a backend service that exposes an expenses endpoint.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Fetches expenses from the backend when the app loads
+- Displays each expense title and amount in a simple dashboard card
+- Uses Tailwind CSS and daisyUI for the interface
+- Provides a fast Vite development workflow
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev/) 19
+- [Vite](https://vite.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [daisyUI](https://daisyui.com/)
+- ESLint
 
-## Expanding the ESLint configuration
+## Requirements
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js 18 or newer
+- npm
+- A running backend API at:
+
+  ```text
+  http://127.0.0.1:8000/expenses/
+  ```
+
+## Getting started
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/CioFlingar/upskill_task_frontend.git
+   cd upskill_task_frontend
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the backend service on port `8000`.
+
+4. Start the frontend:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the local URL shown by Vite, usually [http://localhost:5173](http://localhost:5173).
+
+## Available scripts
+
+| Command           | Description                          |
+| ----------------- | ------------------------------------ |
+| `npm run dev`     | Start the Vite development server    |
+| `npm run build`   | Create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint`    | Run ESLint                           |
+
+## API response
+
+The frontend expects `GET /expenses/` to return a JSON array. Each item should include an `id`, `title`, and `amount`:
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Office supplies",
+    "amount": 25.5
+  }
+]
+```
+
+If the API is unavailable, the browser console will report the request error. Make sure the backend is running and that it allows requests from the Vite development server.
+
+## Project structure
+
+```text
+.
+├── public/             # Static assets
+├── src/
+│   ├── assets/         # Images and bundled assets
+│   ├── App.jsx         # Main dashboard component
+│   ├── App.css         # App-level styles
+│   ├── index.css       # Tailwind and daisyUI imports
+│   └── main.jsx        # React entry point
+├── index.html
+├── eslint.config.js
+├── package.json
+└── vite.config.js
+```
+
+## Production build
+
+Create an optimized production build with:
+
+```bash
+npm run build
+```
+
+The generated files are placed in `dist/` and can be served by any static hosting provider.
+
+## Contributing
+
+1. Create a feature branch.
+2. Make your changes.
+3. Run `npm run lint` and `npm run build`.
+4. Open a pull request with a clear description of the change.
+
+## License
+
+No license has been specified yet.
